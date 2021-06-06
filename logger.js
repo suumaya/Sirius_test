@@ -5,3 +5,10 @@ function log(message){
 }
 
 module.exports.log = log;
+// or export a single function without object:
+//module.exports = log;
+// then use directly : logger = require is the log function
+// logger('msg');
+// ch name of logger to log ..
+
+module.exports.url = url;
