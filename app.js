@@ -1,13 +1,19 @@
 
-const logger = require('./logger');
+const Logger = require('./logger');
 const path = require("path");
 const os = require("os");
 const fs = require("fs");
 const EventEmitter = require("events");
-const emitter = new EventEmitter();
+// const emitter = new EventEmitter(); // will use logger
+logger = new Logger();
 
-//console.log(logger);
-//logger.log("this is my msg");
+// Register a listener
+logger.on('messageLogged',(arg) => { //same as function(arg){}
+    console.log('Listener called: ', arg);
+});
+
+// console.log(logger);
+logger.log("this is my msg");
 
 var pathObj = path.parse(__filename);
 //console.log(pathObj);
@@ -26,3 +32,7 @@ var totalmem = os.totalmem();
 // });
 
 
+//raise an event:
+//emitter.emit('messageLogged',{id:1,url:'http://'});
+
+// emitter.emit('logging',{data:'message'})
