@@ -36,7 +36,9 @@ if (req.url == "/api/courses"){
 }); 
 server.listen(80);
 console.log("Listening on port 80...");
-
+// do bc this is complicated for each route
+//, we use Express framework that is built on top
+// of the Http module
 //* Http done *//
 
 
